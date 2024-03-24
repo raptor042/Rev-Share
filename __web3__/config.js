@@ -1,4 +1,4 @@
-export const REV_SHARE_CA = "0xDC38F3Fb353195C35b169EC2f4CB3a14130BBcC3"
+export const REV_SHARE_CA = "0xD5A4fe56bd9D182c76D28d0822Baa66E556A5223"
 
 export const REV_SHARE_ABI = [
   {
@@ -199,6 +199,13 @@ export const REV_SHARE_ABI = [
       }
     ],
     "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "withdraw",
+    "outputs": [],
+    "stateMutability": "payable",
     "type": "function"
   }
 ]
