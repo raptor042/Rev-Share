@@ -36,8 +36,8 @@ const distribute = async () => {
     }
 }
 
-// setInterval(() => {
-//     distribute()
-// }, 1000 * 60 * 60 * 24)
+setInterval(() => {
+    distribute()
+}, 1000 * 60 * 60 * 24)
 
 // fundPool("0.1")
