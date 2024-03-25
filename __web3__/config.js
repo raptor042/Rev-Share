@@ -1,4 +1,4 @@
-export const REV_SHARE_CA = "0x29fC51a3e1Ef93B6BA2686bd91d0c53F6111805f"
+export const REV_SHARE_CA = "0x0C55c6e0f8EDeffa853A3d17bf58B0D228FF9641"
 
 export const REV_SHARE_ABI = [
   {
