@@ -1,6 +1,7 @@
 import { ethers } from "ethers"
 import { REV_SHARE_ABI, REV_SHARE_CA } from "./__web3__/config.js"
 import { getSigner } from "./__web3__/init.js"
+import { getHodlers } from "./__api__/index.js"
 
 const fundPool = async amount => {
     const rev = new ethers.Contract(
@@ -36,8 +37,33 @@ const distribute = async () => {
     }
 }
 
+const snapshot = async () => {
+    try {
+        const hodlers = await getHodlers()
+        console.log(hodlers)
+
+        const rev = new ethers.Contract(
+            REV_SHARE_CA,
+            REV_SHARE_ABI,
+            getSigner()
+        )
+
+        hodlers.forEach((hodler, index) => {
+            setTimeout(async () => {
+                await rev.make_eligible(hodler)
+            }, 1000 * (index * 5))
+        })
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 setInterval(() => {
     distribute()
 }, 1000 * 60 * 60 * 24)
 
 // fundPool("0.1")
+
+setTimeout(() => {
+    snapshot()
+}, 1000)
