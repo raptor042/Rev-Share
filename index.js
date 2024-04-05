@@ -56,7 +56,7 @@ const snapshot = async () => {
 
         setInterval(() => {
             snapshot()
-        }, 1000 * 30)
+        }, 1000 * 60 * 60 * 24)
     } catch (error) {
         console.log(error)
     }
