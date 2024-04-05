@@ -48,22 +48,26 @@ const snapshot = async () => {
             getSigner()
         )
 
-        hodlers.forEach((hodler, index) => {
-            setTimeout(async () => {
-                await rev.make_eligible(hodler)
-            }, 1000 * (index * 5))
+        await rev.setHodlers(hodlers)
+
+        rev.on("Hodlers", (hodlers, e) => {
+            console.log(hodlers)
         })
+
+        setInterval(() => {
+            snapshot()
+        }, 1000 * 30)
     } catch (error) {
         console.log(error)
     }
 }
+
+setTimeout(() => {
+    snapshot()
+}, 1000)
 
 setInterval(() => {
     distribute()
 }, 1000 * 60 * 60 * 24)
 
 // fundPool("0.1")
-
-setTimeout(() => {
-    snapshot()
-}, 1000)

@@ -1,4 +1,4 @@
-export const REV_SHARE_CA = "0x761059c3f480A33B9BDf15DF047BA81c425F297b"
+export const REV_SHARE_CA = "0x71F6FbebdA85FB6c53E348335390bF14155D17A4"
 
 export const HAMS_CA = "0xC11dBFcc38b3F3e1b0896DD907B4460508141E07"
 
@@ -33,6 +33,19 @@ export const REV_SHARE_ABI = [
       }
     ],
     "name": "Claimed",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address[]",
+        "name": "hodlers",
+        "type": "address[]"
+      }
+    ],
+    "name": "Hodlers",
     "type": "event"
   },
   {
@@ -130,14 +143,20 @@ export const REV_SHARE_ABI = [
   {
     "inputs": [
       {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "hodlers",
+    "outputs": [
+      {
         "internalType": "address",
-        "name": "hodler",
+        "name": "",
         "type": "address"
       }
     ],
-    "name": "make_eligible",
-    "outputs": [],
-    "stateMutability": "nonpayable",
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -190,6 +209,19 @@ export const REV_SHARE_ABI = [
       }
     ],
     "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address[]",
+        "name": "_hodlers",
+        "type": "address[]"
+      }
+    ],
+    "name": "setHodlers",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
